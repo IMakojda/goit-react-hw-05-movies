@@ -10,7 +10,6 @@ export const ListActors = styled.ul`
   padding:10px;
   max-width: calc(100vw - 48px);
 `
-
 export const LiItemActor = styled.li`
   background-color: #282c34;
   border-radius: 10px;
@@ -25,6 +24,7 @@ max-width:100%;
 border-radius:10px;
 margin-bottom:3px;
 `
+
 export const SubTitle = styled.p`
 margin:0;
 text-align: center;

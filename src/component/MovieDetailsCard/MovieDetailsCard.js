@@ -21,12 +21,12 @@ export const MovieDetailsCard = ({ item }) => {
     poster_path,
     release_date,
   } = item;
-  const noImage = "/wwemzKWzjKYJFfCeiB57q3r4Bcm.png"
+  
   return (
     <>
       <Article>
 
-        <Image src={`https://image.tmdb.org/t/p/w500${poster_path || noImage}`} alt={title} />
+        <Image src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={title} />
         <DescriptionDiv>
 
           <Title>{title || original_title} ({release_date.slice(0, 4)})</Title>

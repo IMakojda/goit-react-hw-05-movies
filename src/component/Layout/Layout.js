@@ -10,7 +10,6 @@ export default function Layout() {
       <Suspense fallback={<div>LOADING.../</div>}>
         <Outlet />
       </Suspense>
-
     </Container>
   )
 };

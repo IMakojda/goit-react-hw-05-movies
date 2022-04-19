@@ -2,8 +2,7 @@ import { useCastHook } from '../../hooks/useCastHook';
 import { ListActors, LiItemActor, ImgActors, SubTitle } from './Cast.styled';
 
 export default function Cast() {
-  const cast = useCastHook();
-
+ const cast = useCastHook();
   return (
     <>
       {cast && cast.length > 0 ? (
@@ -23,5 +22,4 @@ export default function Cast() {
       )}
     </>
   )
-
 };
