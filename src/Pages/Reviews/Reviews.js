@@ -1,7 +1,6 @@
 import { useReview } from '../../hooks/useReviewHook';
 import { SubTitleName, ReviewDiv } from './Review.styled';
 
-
 export default function Reviews() {
   const reviews = useReview();
   return (
@@ -15,7 +14,6 @@ export default function Reviews() {
             </div>
           ))}
         </ReviewDiv>
-
       ) : (
         <p>NO reviews for this movie.</p>
       )}

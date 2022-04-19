@@ -5,10 +5,7 @@ import { CardSubTitle } from "../../component/MovieDetailsCard/MovieDetailsCard.
 import GoBackBtn from "../../component/GobackBtn/GoBackBtn";
 import { useFetchMovieDetailPage } from "../../hooks/userHookMovieDetailPage";
 
-
-
 export default function MovieDetailsPage() {
-
   const movie = useFetchMovieDetailPage();
 
   return (
@@ -27,7 +24,6 @@ export default function MovieDetailsPage() {
           <Outlet />
         </main>
       )}
-
     </>
   )
 };

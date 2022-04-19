@@ -15,6 +15,7 @@ text-decoration: none;
     color:#db1a5e;
   }
 `
+
 export const Article = styled.article`
   display:flex;
   padding:0 15px 15px 15px;
@@ -54,9 +55,11 @@ export const CardSubTitle = styled.h3`
   font-size: 20px;
   margin:10px 0 5px 0;
 `
+
 export const OverviewText = styled.p`
 margin:0;
 `
+
 export const List = styled.ul`
   display: flex;
   padding: 0;

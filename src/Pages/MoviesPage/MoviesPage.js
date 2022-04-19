@@ -46,7 +46,6 @@ export default function MoviesPage() {
   }, [searchMovie]);
 
   return (
-
     <>
       <GoBackBtn />
 
@@ -63,8 +62,7 @@ export default function MoviesPage() {
         <ButtonSearch type="submit" >
           <IoSearch fill='white' size="20px" />
         </ButtonSearch>
-      </FormSearch>
-      }
+      </FormSearch>}
 
       {movieList && (
         <ListMovie>
@@ -73,12 +71,11 @@ export default function MoviesPage() {
               <GlobalLink to={`${movie.id}`}>{movie.title || movie.original_title}</GlobalLink>
             </li>
           ))}
-        </ListMovie>
-      )}
+        </ListMovie>)}
+
       <Suspense fallback={<div>LOADING ...</div>}>
         <Outlet />
       </Suspense>
-
     </>
   )
 };

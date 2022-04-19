@@ -2,7 +2,6 @@ import { useFetchHomePage } from '../../hooks/userHookHomePage';
 import { GlobalLink, ListMovie, Title } from './HomePage.styled';
 
 export default function HomePage() {
-
   const movies = useFetchHomePage();
 
   return (
