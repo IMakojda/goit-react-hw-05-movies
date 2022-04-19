@@ -1,12 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "./component/Layout/Layout";
-// import MoviesPage from "./Pages/MoviesPage/MoviesPage";
-// import HomePageView from "./Pages/HomePage/HomePage";
-// import MovieDetailsPage from "./Pages/MovieDetailsPage/MovieDetailsPage";
-// import Cast from "./Pages/Cast/Cast";
-// import Reviews from "./Pages/Reviews/Review";
 import { createAsyncPages } from "./helpers/AsyncPages";
-
+import { NotFound } from "./Pages/NoFound/NoFound";
 
 const MoviesPage = createAsyncPages('MoviesPage');
 const HomePage = createAsyncPages('HomePage');
@@ -28,7 +23,7 @@ function App() {
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
-
+        <Route path="*" element={<NotFound />} />
       </Route>
 
     </Routes>
