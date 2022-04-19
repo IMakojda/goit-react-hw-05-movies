@@ -2,7 +2,7 @@ import { useCastHook } from '../../hooks/useCastHook';
 import { ListActors, LiItemActor, ImgActors, SubTitle } from './Cast.styled';
 
 export default function Cast() {
- const cast = useCastHook();
+  const cast = useCastHook();
   return (
     <>
       {cast && cast.length > 0 ? (
@@ -10,7 +10,7 @@ export default function Cast() {
           {cast.map(({ id, profile_path, original_name, name, character }) =>
             <LiItemActor key={id}>
               <article>
-                <ImgActors src={`https://image.tmdb.org/t/p/w500/${profile_path}`} alt={original_name} />
+                <ImgActors src={`https://image.tmdb.org/t/p/w500/${profile_path || 'wwemzKWzjKYJFfCeiB57q3r4Bcm.png'}`} alt={original_name} />
                 <SubTitle>{name}</SubTitle>
                 <SubTitle>{character}</SubTitle>
               </article>
