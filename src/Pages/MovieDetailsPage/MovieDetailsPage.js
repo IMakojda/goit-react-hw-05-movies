@@ -1,18 +1,20 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom"
 import { MovieDetailsCard } from "../../component/MovieDetailsCard/MovieDetailsCard";
-import { SubInfoDiv, SubLink } from "./MovieDetailsPage.styled";
+import { SubInfoDiv, SubLink, GoBackBtn } from "./MovieDetailsPage.styled";
 import { CardSubTitle } from "../../component/MovieDetailsCard/MovieDetailsCard.styled";
-import GoBackBtn from "../../component/GobackBtn/GoBackBtn";
+import { GoChevronLeft } from "react-icons/go";
 import { useFetchMovieDetailPage } from "../../hooks/userHookMovieDetailPage";
 
 export default function MovieDetailsPage() {
+  const navigate = useNavigate();
   const movie = useFetchMovieDetailPage();
 
   return (
     <>
       {movie && (
         <main>
-          <GoBackBtn />
+
+          <GoBackBtn onClick={() => navigate(-1)} ><GoChevronLeft />Go back</GoBackBtn>
           <MovieDetailsCard item={movie} />
 
           <SubInfoDiv>

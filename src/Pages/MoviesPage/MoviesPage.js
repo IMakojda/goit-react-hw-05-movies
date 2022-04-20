@@ -1,20 +1,22 @@
 import { useState, useEffect, Suspense } from 'react';
-import { ButtonSearch, InputSearch, FormSearch } from './MoviesPage.styled';
+import { ButtonSearch, InputSearch, FormSearch, GoBackBtn } from './MoviesPage.styled';
 import { IoSearch } from "react-icons/io5"
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { fetchSearchMovie } from '../../service/api-service';
 import { ListMovie, GlobalLink } from '../HomePage/HomePage.styled';
-import { Outlet } from 'react-router-dom';
-import GoBackBtn from '../../component/GobackBtn/GoBackBtn';
+import { Outlet, useSearchParams, useNavigate } from 'react-router-dom';
+import { GoChevronLeft } from "react-icons/go";
 
 export default function MoviesPage() {
   const [value, setValue] = useState('')
-  const [searchMovie, setSearchMovie] = useState('');
   const [movieList, setMovieList] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   const handleSearchMovieChange = e => {
     setValue(e.currentTarget.value.toLowerCase())
   }
+  const searQuery = searchParams.get('query')
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -22,18 +24,19 @@ export default function MoviesPage() {
       Notify.warning("No name to search.")
       return
     }
-    setSearchMovie(value);
+
+    setSearchParams({ query: value })
     setValue('');
   }
 
   useEffect(() => {
-    if (!searchMovie) {
+    if (!searQuery) {
       return;
     }
 
     async function fetchMovie() {
       try {
-        const movies = await fetchSearchMovie(searchMovie);
+        const movies = await fetchSearchMovie(searQuery);
         setMovieList(movies);
         if (movies.length === 0) {
           return Notify.failure(`Enter the correct movie name.`);
@@ -43,11 +46,11 @@ export default function MoviesPage() {
       }
     }
     fetchMovie();
-  }, [searchMovie]);
+  }, [searQuery]);
 
   return (
     <>
-      <GoBackBtn />
+      <GoBackBtn onClick={() => navigate(-1)}><GoChevronLeft />Go back</GoBackBtn>
 
       {<FormSearch className="searchForm" onSubmit={handleSubmit}>
         <InputSearch

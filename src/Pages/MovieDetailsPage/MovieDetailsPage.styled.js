@@ -1,6 +1,20 @@
 import styled from "styled-components"
 import { NavLink } from "react-router-dom"
 
+export const GoBackBtn = styled.button`
+  cursor:pointer;
+  margin-bottom: 10px;
+  display:flex;
+  align-items: center;
+  color:#2a363b;
+  background-color: transparent;
+  border: none;
+  font-size:18px;
+  &:hover {
+    color:#db1a5e;
+  }
+`
+
 export const SubInfoDiv = styled.div`
 padding:15px;
 border-top:1px solid #6d6d6e;

@@ -1,7 +1,6 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Layout from "./component/Layout/Layout";
 import { createAsyncPages } from "./helpers/AsyncPages";
-import { NotFound } from "Pages/NoFound/NoFound";
 
 const MoviesPage = createAsyncPages('MoviesPage');
 const HomePage = createAsyncPages('HomePage');
@@ -12,7 +11,7 @@ const Reviews = createAsyncPages('Reviews');
 function App() {
   return (
 
-    <Routes basename='/goit-react-hw-05-movies/'>
+    <Routes>
 
       <Route path='/' element={<Layout />} >
         <Route index element={<HomePage />} />
@@ -23,7 +22,7 @@ function App() {
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<Navigate to='/' />} />
       </Route>
 
     </Routes>
